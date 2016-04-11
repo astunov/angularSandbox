@@ -1,0 +1,30 @@
+<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+  <!-- name -->
+  <div class="form-group" ng-class="{ 'has-error' : userForm.name.$viewValue === '' && !userForm.name.$pristine || userForm.name.$error.maxlength}">
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name"  ng-model="name" ng-maxlength="50" required>
+    <div class="help-block" ng-show="userForm.name.$viewValue === '' && !userForm.name.$pristine">Name is required. </div>
+    <div class="help-block" ng-show="userForm.name.$error.maxlength">You name is too long.</div>
+  </div>
+  <!-- /. name -->
+  <!-- password -->
+  <div class="form-group" ng-class="{ 'has-error' : userForm.password.$viewValue === '' && !userPassword.password.$pristine || userForm.password.$error.minlength || userForm.password.$error.maxlength}">
+    <label for="">Password</label>
+    <input type="password" class="form-control" name="password" ng-model="password" ng-minlength="6" ng-maxlength="32" required>
+    <div class="help-block" ng-show="userForm.password.$viewValue === '' && !userPassword.password.$pristine">Password is required.</div>
+     <div class="help-block" ng-show="userForm.password.$error.minlength">You password is too short.</div>
+     <div class="help-block" ng-show="userForm.password.$error.maxlength">You password is too long.</div>
+  </div>
+  <!-- /. password -->
+  <!-- email -->
+  <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+    <label for="">Email</label>
+    <input type="email" class="form-control" name="email" ng-model="email">
+    <div class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">Enter a valid email.</div>
+  </div>
+  <!-- /. email -->
+  <!-- submit -->
+  <input type="submit" value="Send" class="btn btn-primary" >
+  <!-- /. submit -->
+</form>
+

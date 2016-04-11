@@ -1,0 +1,11 @@
+<h2>Photos</h2>
+<ul class="gallery" ng-controller="GalleryCtrl">
+  <li ng-repeat="photo in photos">
+    <a ng-click="openLightboxModal($index)" title="{{ photo.title }}">
+      <img ng-src="{{photo.thumbnailUrl}}" class="img-thumbnail" alt="{{ photo.title }}">
+    </a>
+  </li>
+</ul>
+
+
+

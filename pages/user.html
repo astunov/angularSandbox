@@ -1,0 +1,38 @@
+
+
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+        <!-- THUMB -->
+        <img class="img-responsive" src="https://unsplash.it/200/300">
+        <!-- /. THUMB -->
+      </div>
+      <div class="col-md-9">
+
+          <!-- META INFO -->
+          <h2>{{ user.name}}</h2>
+          <h3>{{ user.phone}}</h3>
+          <h4>{{ user.email}}</h4>
+          <!-- /. META INFO -->
+
+          <!-- ALBUMS -->
+          <h3> Albums</h3>
+          <div class="row">
+            <div class="col-xs-3 col-md-2" ng-repeat="album in albumList">
+              <album> </album>
+            </div>
+          </div>
+          <!-- /. ALBUMS -->
+
+          <!-- POST LIST -->
+          <div class="row">
+            <div class="col-xs-12" ng-repeat="post in posts">
+              <post-item> </post-item>
+            </div>
+          </div>
+          <!-- /. POST LIST -->
+
+      </div>
+    </div>
+</div>
