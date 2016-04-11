@@ -1,8 +1,12 @@
 // Posts list on main page
-myApp.controller('postController', function ($scope, appDataService) {
+myApp.controller('postController', function ($scope, $filter, appDataService) {
 
   $scope.posts = appDataService.GetPosts();
-  $scope.users = appDataService.GetUsers();
+
+  // Не смог добиться адекватного решения с привязкой имени к id. C одной стороны неплохо было бы сделать через $filter,
+  // с другой для каждого фильтровать — это жестоко. Разумнее подключить ко всем объектами их имена сразу, но насколько
+  // это нужно для подобной задачи? Мое решение через классический arr.filter(callback[, thisArg])» себя не оправдало.
+  // $scope.users = appDataService.GetUsers();
 
 });
 
@@ -69,21 +73,23 @@ myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 });
 
 
-myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $uibModal, items) {
+// Возникли сложности с закрытием попапа, поэтому ограничился алертом
 
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+// myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $uibModal, items) {
 
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
+//   $scope.items = items;
+//   $scope.selected = {
+//     item: $scope.items[0]
+//   };
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
+//   $scope.ok = function () {
+//     $uibModalInstance.close($scope.selected.item);
+//   };
+
+//   $scope.cancel = function () {
+//     $uibModalInstance.dismiss('cancel');
+//   };
+// });
 
 myApp.controller('formController', function($scope) {
 
